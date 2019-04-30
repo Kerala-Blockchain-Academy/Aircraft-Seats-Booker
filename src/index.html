@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <title>Flight Seats</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/airline.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js"
+            integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB"
+            crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    
+    <div class="container">
+
+      <div id="loader" hidden>
+        <p class="text-center">Loading...</p>
+      </div>
+
+
+      <div id="flightsRow" class="row">
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-sm-push-2">
+            <h1 class="text-center">Available Flights</h1>
+            <hr/>
+            <br/>
+          </div>
+        </div>
+
+        <div id="flightsTemplate" style="display: none;">
+          <div class="col-sm-6 col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Flight Number</h3>
+              </div>
+              <div class="panel-body">
+                <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="width: 100%;" src="https://animalso.com/wp-content/uploads/2017/01/Golden-Retriever_6.jpg" data-holder-rendered="true">
+                <br/><br/>
+                <strong>Origin</strong>: <span class="flight-origin">Kochi</span><br/>
+                <strong>Destination</strong>: <span class="flight-destination">Dubai</span><br/>
+                <strong>Airline</strong>: <span class="flight-airline-name">Air India</span><br/><br/>
+                <button class="btn btn-default btn-book-flight" type="button" data-id="0">Book Flight</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div id="seatsRow" class="row" hidden>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-sm-push-2">
+            <h1 class="text-center">Choose Seat On Flight</h1>
+            <hr/>
+            <br/>
+          </div>
+        </div>
+
+        <div id="seatsTemplate" style="display: none;">
+          <div class="col-sm-6 col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Seat Number</h3>
+              </div>
+              <div class="panel-body">
+                <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="width: 100%;"
+                     src="placeholder.jpg"
+                     data-holder-rendered="true">
+                <br/><br/>
+                <strong>Seat Number</strong>: <span class="seat-number">1A</span><br/>
+                <strong>Price (Wei)</strong>: <span class="seat-price">2 ETH</span><br/>
+                <strong>Seat status</strong>: <span class="seat-status">Vacant</span><br/>
+                <strong>Cabin class</strong>: <span class="seat-cabin">Economy</span><br/><br/>
+                <button class="btn btn-default btn-book-seat" type="button" data-id="0">Select Seat</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div id="bookingCompleteRow" class="row" hidden>
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-sm-push-2">
+            <h1 class="text-center">Your Seat is now Booked.<br/>Please check in for flight.</h1>
+            <hr/>
+            <br/>
+          </div>
+        </div>
+        <div id="bookingCompleteTemplate" style="display: none;">
+          <div class="col-sm-6 col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Your Booking</h3>
+              </div>
+              <div class="panel-body ellipsis">
+                <strong>Seat ID (ERC721 Token ID)</strong>: <span class="seatId">seat id</span><br/><br/>
+                <strong>Flight Number</strong>: <span class="flightNumber">flightNumber</span><br/>
+                <strong>Departure Date</strong>: <span class="departureDate">departureDateTime</span><br/>
+                <strong>Origin</strong>: <span class="origin">origin</span><br/>
+                <strong>Destination</strong>: <span class="destination">destination</span><br/>
+                <strong>Seat Number</strong>: <span class="seatNumber">seatNumber</span><br/>
+                <br/><br/>
+                <button class="btn btn-default btn-checkin" type="button" data-id="0">Check In For Flight</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="checkinRow" class="row" hidden>
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="text-center">Please submit your passport scan and then complete checkin</h1>
+            <hr/>
+            <br/>
+          </div>
+        </div>
+        <div id="checkinTemplate">
+          <div id="fileUploadTemplate" class="col-md-12">
+            <form action="/">
+              <fieldset>
+                <legend>Upload Passport Scan Image to IPFS</legend>
+                <input type="file" name="photo" id="photo">
+                <br/><br/>
+                <button class="btn btn-default btn-upload-ipfs" type="button">Upload Passport To IPFS</button>
+              </fieldset>
+            </form>
+            </br>
+            </br>
+          </div>
+          <div id="ipfsOutput">
+            </br>
+            </br>
+            <img id="output">
+          </div>
+          <br/><br/>
+          <div id="completeCheckin" style="text-align:center;"hidden>
+            <button class="btn btn-default btn-complete-checkin" type="button" data-id="0">Complete Checkin</button>
+          </div>
+          <br/>
+          <br/>
+          <br/>
+        </div>
+      </div>
+
+
+      <div id="BoardingPassRow" class="row" hidden>
+        <div class="row">
+          <div>
+            <h1 class="text-center">You are now Checked in.<br/>Here is your boarding pass.</h1>
+            <hr/>
+            <br/>
+          </div>
+        </div>
+        <div id="boardingPassTemplate">
+          <div class="col-sm-6 col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Your Boarding Pass</h3>
+              </div>
+              <div class="panel-body ellipsis">
+                <img id="barcode" alt="100x100" data-src="holder.js/100x100" class="img-rounded img-center" style="width: 50%;"
+                     src="placeholder.jpg"
+                     data-holder-rendered="true">
+                <div class="barcode-string-div">
+                <span class="barcode-string">barcode string</span><br/><br/>
+                </div>
+                <strong>Boarding Pass ID (ERC721 Token ID)</strong>: <span class="boardingPassId">boarding pass id</span><br/><br/>
+                <strong>Flight Number</strong>: <span class="flightNumber">flightNumber</span><br/>
+                <strong>Departure Date</strong>: <span class="departureDate">departureDateTime</span><br/>
+                <strong>Origin</strong>: <span class="origin">origin</span><br/>
+                <strong>Destination</strong>: <span class="destination">destination</span><br/>
+                <strong>Seat Number</strong>: <span class="seatNumber">seatNumber</span><br/><br/>
+                <strong>Passport Scan IPFS</strong>: <span class="passportScanIpfsUrl">passport scan ipfs url</span><br/>
+                <br/><br/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p id="accountAddress" class="text-center"></p>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/bignumber.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/buffer.js"></script>
+    <script src="js/app.js"></script>
+
+  </body>
+</html>

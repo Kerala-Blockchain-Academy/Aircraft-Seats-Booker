@@ -1,0 +1,6 @@
+Deployed in Rinkeby test network
+--------------------------------
+
+Contract Address : 0xa21d1f63a9E29064227E320E2Ac73573AF28f845
+
+Etherscan link : https://ropsten.etherscan.io/address/0xa21d1f63a9e29064227e320e2ac73573af28f845
