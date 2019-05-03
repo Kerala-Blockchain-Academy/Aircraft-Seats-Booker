@@ -1,8 +1,29 @@
-# Flight Seats Booker
+## Flight Seats Booker
 
-The aim of my project is to revamp the flight booking, check-in and boarding pass processes, distributing flight-seats and boarding passes to passengers as ERC721 Non-Fungible Tokens.
+The aim of this project is to revamp the flight booking, check-in and boarding pass processes, distributing flight-seats and boarding passes to passengers as ERC721 Non-Fungible Tokens.
 
-## Software Packages Used ##
+
+### Airline Use-Cases
+
+1. Create Flight. Provide details such as flight number, origin, destination, departure time, Airline details, and number of seats.
+
+2. Create and Add Seats to Seating Class. Airlines supply seat numbers and corresponding seat prices for each cabin in the flight.
+
+3. Withdraw Fees. Airlines can withdraw their fees from passengers' seat bookings, similar to a payment-approval system.
+
+4. Cancel Seat. Airline can cancel a passenger's seat booking which repossesses their ERC721 seat and triggers a refund to be queued for the passenger.
+
+Hardcoded for demonstration.
+
+### Passenger Use-Cases
+
+1. Book Seat. Passengers can book available flight seats and receive ERC721 seats for their booking.
+
+2. Check-In. Passengers can check-in for flights which returns their ERC721 seat to the airline. The passenger supplies a IPFS hash for their passport-scan image in this check-in operation.
+
+3. Cancel Seat Bookings. Passengers can also cancel their seat booking, which returns their ERC721 Seat to the airline and triggers a refund to be queued for the passenger.
+
+## Software Packages Used 
 
 1. `NodeJS`             -   v9.0.0 (install latest)
    
@@ -21,27 +42,6 @@ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
 ```
 
 6. `Ganache-CLI`        -   v6.2.5 (install latest)
-
-## Airline Use-Cases
-
-1. Create Flight. Provide details such as flight number, origin, destination, departure time, Airline details, and number of seats.
-
-2. Create and Add Seats to Seating Class. Airlines supply seat numbers and corresponding seat prices for each cabin in the flight.
-
-3. Withdraw Fees. Airlines can withdraw their fees from passengers' seat bookings, similar to a payment-approval system.
-
-4. Cancel Seat. Airline can cancel a passenger's seat booking which repossesses their ERC721 seat and triggers a refund to be queued for the passenger.
-
-Hardcoded for demonstration.
-
-## Passenger Use-Cases
-
-1. Book Seat. Passengers can book available flight seats and receive ERC721 seats for their booking.
-
-2. Check-In. Passengers can check-in for flights which returns their ERC721 seat to the airline. The passenger supplies a IPFS hash for their passport-scan image in this check-in operation.
-
-3. Cancel Seat Bookings. Passengers can also cancel their seat booking, which returns their ERC721 Seat to the airline and triggers a refund to be queued for the passenger.
-
 
 ## Demo Installation and Setup
 
