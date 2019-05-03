@@ -2,7 +2,7 @@
 
 The aim of my project is to revamp the flight booking, check-in and boarding pass processes, distributing flight-seats and boarding passes to passengers as ERC721 Non-Fungible Tokens.
 
-# Software Packages Used
+## Software Packages Used ##
 
 1. `NodeJS`             -   v9.0.0 (install latest)
    
@@ -13,19 +13,16 @@ The aim of my project is to revamp the flight booking, check-in and boarding pas
 4. `Solidity (solc-js)` -   v0.4.24 (install exact version)
    
 5. `IPFS`               -   v0.4.18 (install latest)
-
-    ```sh
-    $ sudo ./install.sh
-    $ ipfs init
-    $ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "GET", "POST", "OPTIONS"]'
-    $ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
-    ```
+```
+sudo ./install.sh
+ipfs init
+ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "GET", "POST", "OPTIONS"]'
+ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
+```
 
 6. `Ganache-CLI`        -   v6.2.5 (install latest)
 
-
-
-# Airline Use-Cases
+## Airline Use-Cases
 
 1. Create Flight. Provide details such as flight number, origin, destination, departure time, Airline details, and number of seats.
 
@@ -37,7 +34,7 @@ The aim of my project is to revamp the flight booking, check-in and boarding pas
 
 Hardcoded for demonstration.
 
-# Passenger Use-Cases
+## Passenger Use-Cases
 
 1. Book Seat. Passengers can book available flight seats and receive ERC721 seats for their booking.
 
@@ -46,7 +43,7 @@ Hardcoded for demonstration.
 3. Cancel Seat Bookings. Passengers can also cancel their seat booking, which returns their ERC721 Seat to the airline and triggers a refund to be queued for the passenger.
 
 
-# Demo Installation and Setup
+## Demo Installation and Setup
 
 A local running IPFS instance is required, along with node version 9, npm, ganache-cli, truffle v4.1.13, solc v0.4.24, and metamask.
 
@@ -54,30 +51,26 @@ Steps to execute:
 
 Open 3 terminals in the project folder and then -
 
-1. Terminal 1  (leave it running) -
+1. Terminal 1  (leave it running)
         
-    ```sh
-    $ ganache-cli
-    ```
-
-2. Terminal 2  (leave it running) - 
-
-    ```sh
-    $ ipfs daemon
-    ```
-
-3. Terminal 3 - 
-
-    ```sh
-    $ npm install
-    $ npm run build
-    $ truffle migrate --network development --reset --compile-all
-    $ npm run dev
-    ```
+```
+ganache-cli
+```
+2. Terminal 2  (leave it running)
+```
+ipfs daemon
+```
+3. Terminal 3 
+```
+npm install
+npm run build
+truffle migrate --network development --reset --compile-all
+npm run dev
+```
 
 The final command ``npm run dev`` will start a locally running lite-server instance which will serve the flight booking, checkin and boarding pass UI flows to interact with the contract deployed on local ganache network. 
 
-# Steps to demo
+### Steps to demo
 
 First log into metamask using the same seed phrase from your local running ganache-cli instance. Then switch to another one of the ganache accounts in metamask instead of the default account. The default account is used by the contract owner to create a single flight and airline belonging to this account, and thus you cannot proceed through the flight booking using that same default account.
 
