@@ -1,4 +1,4 @@
-## Flight Seats Booker
+# Flight Seats Booker
 
 The aim of this project is to revamp the flight booking, check-in and boarding pass processes, distributing flight-seats and boarding passes to passengers as ERC721 Non-Fungible Tokens.
 
